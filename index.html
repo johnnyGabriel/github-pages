@@ -15,9 +15,9 @@
             
             $scope.persons = [];
 
-            $http.get('data.json')
+            $http.get('https://johnnygabriel.github.io/github-pages/data.json')
               .then(function(res) {
-                $scope.persons = res;
+                $scope.persons = res.data;
               })
               .catch(console.log)
             
@@ -27,6 +27,11 @@
   </script>
 </head>
 <body ng-controller="appCtrl">
-  <p ng-bind="persons"></p>
+  <h3>Chaves personagens</h3>
+  <ul ng-repeat="person in persons">
+    <li>id: {{ ::person.id }}</li>
+    <li>nome: {{ ::person.name }}</li>
+    <li>idade: {{ ::person.age }}</li>
+  </ul>
 </body>
 </html>
