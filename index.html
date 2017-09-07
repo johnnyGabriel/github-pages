@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Github Pages</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>  
+  <script>
+    (function() {
+
+      angular
+        .module('app', [])
+          .controller('appCtrl', function($scope, $http) {
+            
+            $scope.persons = [];
+
+            $http.get('data.json')
+              .then(function(res) {
+                $scope.persons = res;
+              })
+              .catch(console.log)
+            
+          });
+
+    })()
+  </script>
+</head>
+<body ng-controller="appCtrl">
+  <p ng-bind="persons"></p>
+</body>
+</html>
