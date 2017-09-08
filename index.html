@@ -15,7 +15,7 @@
             
             $scope.persons = [];
 
-            $http.get('https://johnnygabriel.github.io/github-pages/data.json')
+            $http.get('data.json')
               .then(function(res) {
                 $scope.persons = res.data;
               })
